@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Placement Registration</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.0/css/mdb.min.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase-firestore.js"></script>
+  <script src="app.js"></script>
+</head>
+<body>
+        <table id="sa" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+
+                <tbody id="tabledata">
+                  <td id="name"></td>
+
+                </tbody>
+
+              </thead>
+              </table>
+              <!-- <ul ></ul>  -->
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.6.0/js/mdb.min.js"></script>
+<script src="app.js"></script>
+<script>
+$(document).ready(()=>{
+
+  // db.collection('abc').get().then(function(querySnapshot))=> {
+  //   querySnapshot.forEach(function(doc)) {
+
+  //     $('#name').text(doc.data().name);
+  //  $("#age").text(doc.data().age);
+  //  $("#clg_id").text(doc.data().id);
+  //  $("#dob").text(doc.data().dob);
+  //   })
+  //  } )
+   db.collection("abc").get().then(function(querySnapshot) {
+
+                querySnapshot.forEach(function(doc) {
+                    console.log(typeof(doc));
+                    $('#name').text(doc.data().name);
+                    console.log( doc.data().name);
+                });
+            });
+
+});
+</script>
+<script type="text/javascript">
+  $("#addColumn").click(function () {
+	$("tr:first").append("<td>MyTitle</td>");
+	$("tr:not(:first)").append("<td>Sample Element</td>");
+});
+</script>
+</html>
